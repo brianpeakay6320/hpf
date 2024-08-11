@@ -1,0 +1,121 @@
+        <%- include('head.ejs') %>
+        
+            <div class="det">
+                
+              
+                <p>
+                    
+                    <h1 style="color: black;">Welcome to Pwani TVET Clinic</h1><br>
+                  
+                    "At Pwani TVET Clinic, we are committed to providing the highest quality healthcare services to our community. <br>Our team of dedicated professionals works tirelessly to ensure every patient receives personalized, compassionate care. <br>  we are dedicated to providing exceptional healthcare services while advancing medical education and research. <br> Our state-of-the-art facilities and compassionate care ensure that every patient receives the highest quality of treatment
+                </p>
+            </div>
+            <div class="circle">
+                <h2>Our Mission</h2>
+            </div>
+            <div class="box">
+               <p>Our mission is to improve health and well-being through compassionate care, innovative research, and comprehensive medical education. We are committed to training the next generation of healthcare professionals and advancing the science of medicine. To provide exceptional healthcare services with a commitment to quality, compassion, and patient satisfaction. We strive to improve the health and well-being of our community through innovative practices and personalized care.</p>
+              
+            </div>
+            <section style="height: 100vh; background-color: rgb(255, 255, 255);" >
+                <div class="sec">
+                    <h1>ABOUT US</h1>
+                    <p>Founded in 2022, TVET Clinic has a rich history of medical excellence. Our hospital has grown from a small clinic to
+                        a leading healthcare institution, renowned for our cutting-edge research, outstanding patient care, and
+                        comprehensive educational programs.
+                        Founded in 2022, TVET Clinic has a rich history of medical excellence. Our hospital has grown from a small clinic to
+                        a leading healthcare institution, renowned for our cutting-edge research, outstanding patient care, and
+                        comprehensive educational programs.  has been a cornerstone of health and wellness in our community. Over the years, we have grown and evolved, consistently enhancing our services and facilities to meet the changing needs of our patients.
+                    </p>
+                </div>
+               
+            </section>
+            <section style="height: 100vh; background-color: rgba(255, 255, 255, 0.239);" class="">
+                <div class="sec sec1">
+                    <h1>Preparing for Your Visit</h1>
+                    <p>Founded in 2022, TVET Clinic has a rich history of medical excellence. Our hospital has grown from a small clinic to
+                        a leading healthcare institution, renowned for our cutting-edge research, outstanding patient care, and
+                        comprehensive educational programs.
+                        Founded in 2022, TVET Clinic has a rich history of medical excellence. Our hospital has grown from a small clinic to
+                        a leading healthcare institution, renowned for our cutting-edge research, outstanding patient care, and
+                        comprehensive educational programs
+                    </p>
+                    <p>To ensure a smooth visit, please bring the following:</p>
+                    <ul>
+                        <li>Identification</li>
+                        <li>Insurance Information</li>
+                        <li>List of Current Medications</li>
+                        <li>Referral Letters (if applicable)</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </section>
+            <section style="height: 100vh; background-color: rgb(255, 255, 255);" class="">
+                <div class="sec">
+                    <p>Meet our leadership team, dedicated to guiding [Hospital Name] towards excellence in healthcare. Our leaders bring a wealth of experience and a commitment to our mission of providing outstanding care. Founded in 2022, TVET Clinic has a rich history of medical excellence. Our hospital has grown from a small clinic to
+                        a leading healthcare institution, renowned for our cutting-edge research, outstanding patient care, and
+                        comprehensive educational programs.
+                        Founded in 2022, TVET Clinic has a rich history of medical excellence. Our hospital has grown from a small clinic to
+                        a leading healthcare institution, renowned for our cutting-edge research, outstanding patient care, and
+                        comprehensive educational programs
+                    </p>
+                </div>
+            </section>
+            
+          
+             
+           
+            <div class="fm">
+                <h1 style="color: black;">BOOK AN APPOINTMENT</h1>
+                <form action="/appointment" method="post">
+                    <label for="name" >NAME:</label><br>
+                    <input type="text" name="name" id="name"><br>
+                    <label for="email">EMAIL: </label><br>
+                    <input type="email" name="email" id="email"><br>
+                    <label for="phoneno">PHONE NO: </label><br>
+                    <input type="text" name="tellNo" id="phoneno"><br>
+                    <label for="date">DATE</label><br>
+                    <input type="date" name="date" id="date" min="2024-07-22"><br>
+                    <label for="time">TIME</label><br>
+                    <input type="time" name="time" id="time"><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script>
+        console.log('start')
+    //     const boxes = document.querySelectorAll('.box');
+
+    function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function to handle scroll event
+        function onScroll() {
+            const boxes = document.querySelectorAll('.box');
+            boxes.forEach(box => {
+                if (isInViewport(box)) {
+                    box.classList.add('animate');
+                } else {
+                    box.classList.remove('animate');
+                }
+            });
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', onScroll);
+
+        // Initial check in case elements are already in the viewport
+        onScroll();
+    </script>
+</body>
+
+</html>
