@@ -1,0 +1,78 @@
+
+
+
+
+<%- include('head.ejs') %>
+<div class="m-cont-wrapper">
+    <div class="cont">
+        <h2>Pay with Mpesa</h2><br><br>
+        <div class="srch">
+            <label for="token">enter token</label><br>
+            <input type="text" name="token" id="token"><br><br>
+            <button type="submit" id="btn">search</button>
+        </div><br>
+        <div class="form_wrapper">
+            <form action="/lipa" method="post">
+                <label for="number">enter phone No</label><br>
+                <input type="text" name="phone" id="phone"><br>
+                <label for="token">Amount</label><br>
+                <input type="text" name="amount" id="amount"><br><br>
+                <button type="submit">pay</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    console.log('script working')
+    document.addEventListener('DOMContentLoaded', () => {
+    console.log('script working')
+
+    const btn = document.getElementById('btn');
+    const tokenInput = document.getElementById('token');  // Avoid name conflict
+    const phoneInput = document.getElementById('phone');
+    const amountInput = document.getElementById('amount');
+
+    btn.addEventListener('click', function () {
+
+
+
+
+        
+
+
+
+        const token = tokenInput.value;  // Get the token value
+
+        if (!token) {
+            alert('Please enter a token.');
+            return;
+        }
+
+        // Make a POST request to the backend to fetch data
+        fetch('/fetchData', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token: token }),  // Send token to the server
+        })
+        .then(response => response.json())  // Parse the JSON response
+        .then(data => {
+            if (data.error) {
+                alert(data.error);  // Show error if token doesn't exist
+            } else {
+                // Update phone and amount fields with the response data
+                phoneInput.value = data.tellNo;  // Assuming 'tellNo' is phone number
+                amountInput.value = data.balance;  // Assuming 'balance' is the amount
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+     });
+ });
+
+</script>
+</body>
+</html>
